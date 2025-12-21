@@ -1,6 +1,5 @@
 import sys
-import logging
-from logger import logging   # importing configured logger
+from src.logger import logging
 
 
 def error_message_detail(error: Exception, error_detail):
@@ -24,17 +23,18 @@ class CustomException(Exception):
         return self.error_message
 
 
-def main():
-    try:
-        a = 1 / 0  # test error
-    except Exception as e:
-        logging.error(error_message_detail(e, sys))
-        raise CustomException(e, sys)
+
+# def main():
+#     try:
+#         a = 1 / 0  # test error
+#     except Exception as e:
+#         logging.error(error_message_detail(e, sys))
+#         raise CustomException(e, sys)
 
 
-if __name__ == "__main__":
-    try:
-        main()
-    except CustomException as ce:
-        print(ce)
-        logging.info("divide by zero exception caught in main")
+# if __name__ == "__main__":
+#     try:
+#         main()
+#     except CustomException as ce:
+#         print(ce)
+#         logging.info("divide by zero exception caught in main")
